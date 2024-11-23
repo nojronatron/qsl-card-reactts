@@ -1,42 +1,313 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@media screen and (max-width: 599px) {
+  .input-form-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  input[type='radio'] {
+    width: 1.2rem;
+    margin: 0rem !important;
+  }
+  label {
+    font-size: 0.8rem;
+  }
+  .qsl-card-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0.1rem;
+    border: black solid 1px;
+    padding: 1rem;
+  }
+
+  .qsl-card-content {
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  .qsl-card-label {
+    font-weight: 300;
+    font-size: 0.6rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-form-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  input[type='radio'] {
+    width: 1.1rem;
+    margin: 0rem !important;
+  }
+
+  /* FROM (main)*/
+  #qsl-parentdiv-my-name {
+    position: absolute;
+    width: fit-content;
+    top: 10px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #qsl-parentdiv-my-callsign {
+    position: absolute;
+    width: fit-content;
+    top: 51px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    div {
+      font-variant: small-caps;
+      font-size: 0.74rem;
+    }
+  }
+
+  #qsl-parentdiv-my-city {
+    position: absolute;
+    width: fit-content;
+    top: 92px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #qsl-parentdiv-my-county {
+    position: absolute;
+    width: fit-content;
+    top: 143px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #qsl-parentdiv-my-state {
+    position: absolute;
+    width: fit-content;
+    top: 184px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  /* end from main */
+
+  /* FROM (other) */
+  #qsl-parentdiv-my-cq-zone {
+    position: absolute;
+    width: fit-content;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  #qsl-parentdiv-my-arrl-section {
+    position: absolute;
+    width: fit-content;
+    top: 51px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    div {
+      font-variant: small-caps;
+      font-size: 0.74rem;
+    }
+  }
+
+  #qsl-parentdiv-my-grid {
+    position: absolute;
+    width: fit-content;
+    top: 92px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  /* TO (main) */
+  #qsl-parentdiv-ur-name {
+    position: absolute;
+    width: 377px;
+    bottom: 63px;
+    right: 20px;
+    text-align: right;
+  }
+
+  #qsl-parentdiv-ur-callsign {
+    position: absolute;
+    width: fit-content;
+    bottom: 63px;
+    left: 20px;
+    div {
+      font-variant: small-caps;
+      font-size: 0.74rem;
+    }
+    text-align: left;
+  }
+  /* end to main */
+
+  /* QSO Data */
+  #qsl-parentdiv-qso-date {
+    position: absolute;
+    width: fit-content;
+    bottom: 113px;
+    left: 255px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-qso-time-utc {
+    position: absolute;
+    width: fit-content;
+    bottom: 113px;
+    left: 344px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-qso-bandmhz {
+    position: absolute;
+    width: fit-content;
+    bottom: 12px;
+    left: 20px;
+    text-align: left;
+  }
+
+  #qsl-parentdiv-qso-mode {
+    position: absolute;
+    width: fit-content;
+    bottom: 12px;
+    left: 99px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-qso-signal {
+    position: absolute;
+    width: fit-content;
+    bottom: 12px;
+    left: 165px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-qso-exchange {
+    position: absolute;
+    width: 230px;
+    bottom: 12px;
+    right: 20px;
+    text-align: right;
+  }
+
+  #qsl-parentdiv-psetnx {
+    position: absolute;
+    width: fit-content;
+    bottom: 113px;
+    right: 20px;
+    text-align: center;
+  }
+  /* end strict-positioning */
+
+  .qsl-card-block {
+    /* set for 4x6 card - should change this to be dynamic */
+    width: 490px;
+    height: 354px;
+    position: relative;
+    border: black solid 1px;
+    background-image: url('/background490x382.png');
+  }
+
+  .qsl-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .qsl-card-content {
+    font-weight: 700;
+    font-size: 0.7rem;
+  }
+
+  .qsl-card-infocell {
+    background-color: rgba(220, 220, 220, 0.9);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  .qsl-card-label {
+    font-weight: 300;
+    font-size: 0.5rem;
+  }
+}
+
+button {
+  font-size: 1rem;
+  width: fit-content;
+  padding: 0.2rem 0.3rem;
   text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+input {
+  font-size: 1rem;
+  border: black dotted 1px;
+  border-radius: 6px;
+  padding: 0.1rem 0.3rem 0.1rem 0.3rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+  margin: 0.5rem;
+  height: fit-content;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#qsl-parentdiv-my-callsign div {
+  font-variant: small-caps;
+  font-size: 0.74rem;
 }
 
-.card {
-  padding: 2em;
+#qsl-parentdiv-my-arrl-section div {
+  font-variant: small-caps;
+  font-size: 0.74rem;
 }
 
-.read-the-docs {
-  color: #888;
+#qsl-parentdiv-ur-callsign div {
+  font-variant: small-caps;
+  font-size: 0.74rem;
+}
+
+.footer-text,
+.header-nav {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  align-items: center;
+  padding: 0.5rem;
+  border-top: black solid 1px;
+  border-bottom: black solid 1px;
+}
+
+.footer-text {
+  margin-top: 0.4rem;
+}
+
+.header-nav {
+  margin-bottom: 0.4rem;
+}
+
+.input-form-container {
+  display: grid;
+  grid-column-gap: 12px;
+  grid-row-gap: 4px;
+  margin-top: 0.2rem;
+}
+
+.psetnx-container {
+  margin: 0.1rem;
+}
+
+.psetnx-container > label {
+  margin-right: 1rem;
+}
+
+.separator-bar {
+  height: 0.4rem;
+  border-top: black solid 1px;
+  border-bottom: black solid 1px;
+  margin: 0.5rem 0rem;
 }
