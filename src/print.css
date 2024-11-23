@@ -1,0 +1,223 @@
+@media print {
+  body {
+    font-size: 12px;
+    visibility: hidden;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .qsl-card-container {
+    visibility: visible;
+    display: block;
+    --webkit-print-color-adjust: exact; /* ensure background image is printed */
+  }
+
+  .qsl-card-block {
+    /* 4x6 card */
+    width: 490px;
+    height: 354px;
+    position: relative;
+    border: black solid 1px;
+    margin: 0px;
+    padding: 0px;
+    /* use absolute url for background image */
+    background: url('http://localhost:5173/background490x382.png') no-repeat center center;
+    background-size: cover; /* ensure background image convers entire block */
+    --webkit-print-color-adjust: exact; /* ensure background image is printed */
+    print-color-adjust: exact; /* ensure background image is printed */
+  }
+
+  .qsl-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .qsl-card-content {
+    font-weight: 700;
+    font-size: 0.7rem;
+  }
+
+  .qsl-card-infocell {
+    background-color: rgba(220, 220, 220, 0.9);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  .qsl-card-label {
+    font-weight: 300;
+    font-size: 0.5rem;
+  }
+
+  /* FROM (main)*/
+  #qsl-parentdiv-my-name {
+    position: absolute;
+    width: fit-content;
+    top: 10px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #qsl-parentdiv-my-callsign {
+    position: absolute;
+    width: fit-content;
+    top: 51px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    div {
+      font-variant: small-caps;
+      font-size: 0.74rem;
+    }
+  }
+
+  #qsl-parentdiv-my-city {
+    position: absolute;
+    width: fit-content;
+    top: 92px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #qsl-parentdiv-my-county {
+    position: absolute;
+    width: fit-content;
+    top: 143px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #qsl-parentdiv-my-state {
+    position: absolute;
+    width: fit-content;
+    top: 184px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  /* end from main */
+
+  /* FROM (other) */
+  #qsl-parentdiv-my-cq-zone {
+    position: absolute;
+    width: fit-content;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  #qsl-parentdiv-my-arrl-section {
+    position: absolute;
+    width: fit-content;
+    top: 51px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    div {
+      font-variant: small-caps;
+      font-size: 0.74rem;
+    }
+  }
+
+  #qsl-parentdiv-my-grid {
+    position: absolute;
+    width: fit-content;
+    top: 92px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  /* TO (main) */
+  #qsl-parentdiv-ur-name {
+    position: absolute;
+    width: 377px;
+    bottom: 63px;
+    right: 20px;
+    text-align: right;
+  }
+
+  #qsl-parentdiv-ur-callsign {
+    position: absolute;
+    width: fit-content;
+    bottom: 63px;
+    left: 20px;
+    div {
+      font-variant: small-caps;
+      font-size: 0.74rem;
+    }
+    text-align: left;
+  }
+  /* end to main */
+
+  /* QSO Data */
+  #qsl-parentdiv-qso-date {
+    position: absolute;
+    width: fit-content;
+    bottom: 113px;
+    left: 255px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-qso-time-utc {
+    position: absolute;
+    width: fit-content;
+    bottom: 113px;
+    left: 344px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-qso-bandmhz {
+    position: absolute;
+    width: fit-content;
+    bottom: 12px;
+    left: 20px;
+    text-align: left;
+  }
+
+  #qsl-parentdiv-qso-mode {
+    position: absolute;
+    width: fit-content;
+    bottom: 12px;
+    left: 99px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-qso-signal {
+    position: absolute;
+    width: fit-content;
+    bottom: 12px;
+    left: 165px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-qso-exchange {
+    position: absolute;
+    width: 230px;
+    bottom: 12px;
+    right: 20px;
+    text-align: right;
+  }
+
+  #qsl-parentdiv-psetnx {
+    position: absolute;
+    width: fit-content;
+    bottom: 113px;
+    right: 20px;
+    text-align: center;
+  }
+  /* end strict-positioning */
+
+  /* print button should not impact print preview */
+  .print-button {
+    visibility: hidden;
+    display: none;
+  }
+}
