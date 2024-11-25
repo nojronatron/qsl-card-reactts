@@ -17,8 +17,8 @@ function PostcardAddressSide({ senderFields }: PostcardAddressSideProps) {
     const divId = `postcard-parentdiv-${lowerKey}`;
     const labelId = `postcard-label-${lowerKey}`;
     const dashedKey = key.replaceAll(/\s/g, '-');
-    const displayKey = key.replaceAll(/\-/g, '');
-    const displayValue = value.replaceAll(/\-/g, '');
+    const displayKey = key.replaceAll(/-/g, '');
+    const displayValue = value.replaceAll(/-/g, '');
 
     return (
       <div key={divId} className='postcard-card-infocell' id={divId}>

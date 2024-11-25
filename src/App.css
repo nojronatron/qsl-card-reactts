@@ -266,10 +266,10 @@ main {
   font-size: 0.74rem;
 }
 
-#qsl-parentdiv-ur-callsign div {
+/* #qsl-parentdiv-ur-callsign div {
   font-variant: small-caps;
   font-size: 0.74rem;
-}
+} */
 
 .footer-text,
 .header-nav {

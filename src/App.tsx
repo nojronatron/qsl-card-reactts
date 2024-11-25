@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import FooterComponent from './components/FooterComponent'
+import HeaderComponent from './components/HeaderComponent'
 import MyInfoForm from './components/MyInfoForm'
-import UrInfoForm from './components/UrInfoForm'
+import PostcardAddressSide from './components/PostcardAddressSide'
 import QslCard from './components/QslCard'
+import UrInfoForm from './components/UrInfoForm'
 import './App.css'
 import './print.css'
 
@@ -10,13 +13,21 @@ function App() {
   const [infoData, setInfoData] = useState({
     myname: '',
     mycallsign: '',
+    myreturnaddress: '',
     mycity: '',
     mycounty: '',
     mystate: '',
+    myreturnzip: '',
+    mycountry: '',
     mycqzone: '',
     myarrlsection: '',
     mygrid: '',
     urname: '',
+    uraddress: '',
+    urcity: '',
+    urstate: '',
+    urzip: '',
+    urcountry: '',
     urcallsign: '',
     qsodate: '',
     qsotime: '',
@@ -26,8 +37,6 @@ function App() {
     qsoexchange: '',
     psetnx: 'pse',
   });
-
-  console.log('app.ts printVisibility state is:', printVisibility);
 
   function handleSetInfoData(itemName: string, itemValue: string) {
     setInfoData((prevState) => {
@@ -55,24 +64,22 @@ function App() {
       (
       <div>
         <header>
-          <div className='header-nav'>
-            <img src="jrsoftware-logo-128x128.png" alt="JR Software Logo" width="32px" />
-            <p>K7RMZ QSL Card Generator</p>
-          </div>
+          <HeaderComponent />
         </header>
         <main>
           <div>        
             <MyInfoForm myInfoHandlerCallback={handleSetInfoData} />
           </div>
           <div>
-          <UrInfoForm urInfoHandlerCallback={handleSetInfoData} />
+            <UrInfoForm urInfoHandlerCallback={handleSetInfoData} />
           </div>
-          <div>{''}</div>
+          <hr />
           <QslCard senderFields={infoData} />
           <button className='print-button' onClick={handlePrintChange}>Print Card</button>
-          </main>
+          <PostcardAddressSide senderFields={infoData} />
+        </main>
         <footer>
-          <div className='footer-text'>Author: K7RMZ aka Nojronatron</div>
+          <FooterComponent />
         </footer>
       </div>      
       )}

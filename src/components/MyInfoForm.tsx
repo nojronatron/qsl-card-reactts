@@ -3,7 +3,7 @@ interface MyInfoFormProps {
 }
 
 function MyInfoForm({ myInfoHandlerCallback }: MyInfoFormProps) {
-  const handleBlur=(event:any)=>{
+  const handleBlur=(event: React.FocusEvent<HTMLInputElement>)=>{
     myInfoHandlerCallback(event.target.name, event.target.value)
   }
 
@@ -18,12 +18,18 @@ function MyInfoForm({ myInfoHandlerCallback }: MyInfoFormProps) {
         name='mycallsign'
         onBlur={handleBlur}
       />
+      <label htmlFor="myreturnaddress">My Address</label>
+      <input type="text" id="myreturnaddress" name="myreturnaddress" onBlur={handleBlur} />
       <label htmlFor='mycity'>My City</label>
       <input type='text' id='mycity' name='mycity' onBlur={handleBlur} />
       <label htmlFor='mycounty'>My County</label>
       <input type='text' id='mycounty' name='mycounty' onBlur={handleBlur} />
       <label htmlFor='mystate'>My State</label>
       <input type='text' id='mystate' name='mystate' onBlur={handleBlur} />
+      <label htmlFor='myreturnzip'>My Zip</label>
+      <input type='text' id='myreturnzip' name='myreturnzip' onBlur={handleBlur} />
+      <label htmlFor='mycountry'>My Country</label>
+      <input type='text' id='mycountry' name='mycountry' onBlur={handleBlur} />
       <label htmlFor='mycqzone'>My CQ Zone</label>
       <input type='number' id='mycqzone' name='mycqzone' onBlur={handleBlur} />
       <label htmlFor='myarrlsection'>My ARRL Section</label>

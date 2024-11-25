@@ -7,9 +7,9 @@ interface urInfoHandlerCallback {
 function UrInfoForm({ urInfoHandlerCallback }:urInfoHandlerCallback) {
   const [psetnx, setPsetnx] = useState('PSE');
 
-  const handleBlur = (event:any) => {
+  function handleBlur(event: React.FocusEvent<HTMLInputElement | HTMLSelectElement>): void {
     urInfoHandlerCallback(event.target.name, event.target.value);
-  };
+  }
 
   function handlePseChanged() {
     setPsetnx('PSE');
@@ -32,6 +32,16 @@ function UrInfoForm({ urInfoHandlerCallback }:urInfoHandlerCallback) {
         name='urcallsign'
         onBlur={handleBlur}
       />
+      <label htmlFor='uraddress'>Your Address</label>
+      <input type='text' id='uraddress' name='uraddress' onBlur={handleBlur} />
+      <label htmlFor='urcity'>Your City</label>
+      <input type='text' id='urcity' name='urcity' onBlur={handleBlur} />
+      <label htmlFor='urstate'>Your State</label>
+      <input type='text' id='urstate' name='urstate' onBlur={handleBlur} />
+      <label htmlFor='urzip'>Your Zip</label>
+      <input type='text' id='urzip' name='urzip' onBlur={handleBlur} />
+      <label htmlFor='urcountry'>Your Country</label>
+      <input type='text' id='urcountry' name='urcountry' onBlur={handleBlur} />
       <label htmlFor='qsodate'>QSO Date</label>
       <input type='date' id='qsodate' name='qsodate' onBlur={handleBlur} />
       <label htmlFor='qsotime'>QSO Time (UTC)</label>
