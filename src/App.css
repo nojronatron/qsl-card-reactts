@@ -2,13 +2,16 @@
   .input-form-container {
     grid-template-columns: 1fr 1fr;
   }
+
   input[type='radio'] {
     width: 1.2rem;
     margin: 0rem !important;
   }
+
   label {
     font-size: 0.8rem;
   }
+
   .qsl-card-block {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -32,6 +35,7 @@
   .input-form-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+
   input[type='radio'] {
     width: 1.1rem;
     margin: 0rem !important;
@@ -54,13 +58,13 @@
     left: 20px;
     display: flex;
     flex-direction: column;
+
     div {
-      font-variant: small-caps;
       font-size: 0.74rem;
     }
   }
 
-  #qsl-parentdiv-my-city {
+  #qsl-parentdiv-return-city {
     position: absolute;
     width: fit-content;
     top: 92px;
@@ -69,16 +73,25 @@
     flex-direction: column;
   }
 
-  #qsl-parentdiv-my-county {
+  #qsl-parentdiv-return-county {
     position: absolute;
     width: fit-content;
-    top: 143px;
+    top: 133px;
     left: 20px;
     display: flex;
     flex-direction: column;
   }
 
-  #qsl-parentdiv-my-state {
+  #qsl-parentdiv-return-country {
+    position: absolute;
+    width: fit-content;
+    top: 173px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #qsl-parentdiv-return-state {
     position: absolute;
     width: fit-content;
     top: 184px;
@@ -96,7 +109,7 @@
     right: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
   }
 
   #qsl-parentdiv-my-arrl-section {
@@ -106,9 +119,9 @@
     right: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+
     div {
-      font-variant: small-caps;
       font-size: 0.74rem;
     }
   }
@@ -120,16 +133,26 @@
     right: 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+
+    div {
+      font-size: 0.74rem;
+    }
   }
 
   /* TO (main) */
   #qsl-parentdiv-ur-name {
     position: absolute;
-    width: 377px;
+    width: 336px;
     bottom: 63px;
     right: 20px;
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+
+    div,
+    label {
+      text-align: right;
+    }
   }
 
   #qsl-parentdiv-ur-callsign {
@@ -137,69 +160,122 @@
     width: fit-content;
     bottom: 63px;
     left: 20px;
+    display: flex;
+    flex-direction: column;
+
     div {
-      font-variant: small-caps;
       font-size: 0.74rem;
+      text-align: left;
     }
-    text-align: left;
+  }
+
+  #qsl-parentdiv-ur-country {
+    position: absolute;
+    width: fit-content;
+    top: 143px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
   }
   /* end to main */
 
   /* QSO Data */
-  #qsl-parentdiv-qso-date {
+  #qsl-parentdiv-date {
     position: absolute;
     width: fit-content;
     bottom: 113px;
-    left: 255px;
-    text-align: center;
+    left: 270px;
+    display: flex;
+    flex-direction: column;
+
+    div,
+    label {
+      text-align: center;
+    }
   }
 
-  #qsl-parentdiv-qso-time-utc {
+  #qsl-parentdiv-time {
     position: absolute;
     width: fit-content;
     bottom: 113px;
-    left: 344px;
-    text-align: center;
+    left: 358px;
+    display: flex;
+    flex-direction: column;
+
+    div,
+    label {
+      text-align: center;
+    }
   }
 
-  #qsl-parentdiv-qso-bandmhz {
+  #qsl-parentdiv-band-mhz {
     position: absolute;
     width: fit-content;
     bottom: 12px;
     left: 20px;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+    div,
+    label {
+      text-align: center;
+    }
   }
 
-  #qsl-parentdiv-qso-mode {
+  #qsl-parentdiv-mode {
     position: absolute;
     width: fit-content;
     bottom: 12px;
-    left: 99px;
-    text-align: center;
+    left: 112px;
+    display: flex;
+    flex-direction: column;
+
+    div,
+    label {
+      text-align: center;
+    }
   }
 
-  #qsl-parentdiv-qso-signal {
+  #qsl-parentdiv-signal {
     position: absolute;
     width: fit-content;
     bottom: 12px;
-    left: 165px;
-    text-align: center;
+    left: 192px;
+    display: flex;
+    flex-direction: column;
+
+    div,
+    label {
+      text-align: center;
+    }
   }
 
-  #qsl-parentdiv-qso-exchange {
+  #qsl-parentdiv-exchange {
     position: absolute;
-    width: 230px;
+    width: 220px;
     bottom: 12px;
     right: 20px;
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+
+    div,
+    label {
+      text-align: right;
+    }
   }
 
-  #qsl-parentdiv-psetnx {
+  #qsl-parentdiv-pse-tnx {
     position: absolute;
     width: fit-content;
     bottom: 113px;
     right: 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    div,
+    label {
+      text-align: center;
+    }
   }
   /* end strict-positioning */
 
@@ -256,21 +332,6 @@ main {
   height: fit-content;
 }
 
-#qsl-parentdiv-my-callsign div {
-  font-variant: small-caps;
-  font-size: 0.74rem;
-}
-
-#qsl-parentdiv-my-arrl-section div {
-  font-variant: small-caps;
-  font-size: 0.74rem;
-}
-
-/* #qsl-parentdiv-ur-callsign div {
-  font-variant: small-caps;
-  font-size: 0.74rem;
-} */
-
 .footer-text,
 .header-nav {
   display: flex;
@@ -299,10 +360,10 @@ main {
 
 .psetnx-container {
   margin: 0.1rem;
-}
 
-.psetnx-container > label {
-  margin-right: 1rem;
+  label {
+    margin-right: 1rem;
+  }
 }
 
 .separator-bar {
