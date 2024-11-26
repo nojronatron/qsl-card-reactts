@@ -2,7 +2,19 @@ import { useState } from 'react';
 import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import MyInfoForm from './components/MyInfoForm';
-import PostcardAddressSide from './components/PostcardAddressSide';
+import {
+  PostcardReturnAddress,
+  PostcardReturnName,
+  PostCardReturnCityStatePost,
+  PostcardReturnCountry,
+  PostcardSenderMessage,
+} from './components/PostcardAddressSideLeft';
+import {
+  PostcardRecipientAddress,
+  PostcardRecipientName,
+  PostcardRecipientCityStatePost,
+  PostcardRecipientCountry,
+} from './components/PostcardAddressSideRight';
 import QslCard from './components/QslCard';
 import UrInfoForm from './components/UrInfoForm';
 import './App.css';
@@ -172,44 +184,114 @@ function App() {
 
   return (
     <div>
-      <header>
-        <HeaderComponent />
-      </header>
-      <main>
-        <div>
-          <MyInfoForm myInfoHandlerCallback={handleSetInfoData} />
+      {printVisibility ? (
+        <div className='print-visible'>
+          <PostcardReturnAddress returnAddress={myReturnAddress} />
+          <PostcardReturnName returnName={myName} />
+          <PostCardReturnCityStatePost
+            returnCity={myCity}
+            returnState={myState}
+            returnZip={myReturnZip}
+          />
+          <PostcardReturnCountry returnCountry={myCountry} />
+          <PostcardSenderMessage senderMessage={pseTnx} />
+          <PostcardRecipientAddress senderAddress={urAddress} />
+          <PostcardRecipientName name={urname} />
+          <PostcardRecipientCityStatePost
+            city={urCity}
+            state={urState}
+            zip={urZip}
+          />
+          <PostcardRecipientCountry country={urCountry} />
+
+          <QslCard>
+            <TextFieldPart cardKey='My Name' cardValue={myName} />
+            <CallsignPart
+              callsignKey='My Callsign'
+              callsignValue={myCallsign}
+            />
+            <TextFieldPart cardKey='Return City' cardValue={myCity} />
+            <TextFieldPart cardKey='Return County' cardValue={myCounty} />
+            <TextFieldPart cardKey='Return Country' cardValue={myCountry} />
+            <TextFieldPart
+              cardKey='My CQ Zone'
+              cardValue={myCqZone.toString()}
+            />
+            <TextFieldPart
+              cardKey='My ARRL Section'
+              cardValue={myArrlSection}
+            />
+            <TextFieldPart cardKey='My Grid' cardValue={myGrid} />
+            <TextFieldPart cardKey='UR Name' cardValue={urname} />
+            <CallsignPart
+              callsignKey='UR Callsign'
+              callsignValue={urCallsign}
+            />
+            <TextFieldPart cardKey='Date' cardValue={qsoDate} />
+            <TextFieldPart cardKey='Time' cardValue={qsoTime} />
+            <TextFieldPart cardKey='Band MHz' cardValue={qsoBandMhz} />
+            <TextFieldPart cardKey='Mode' cardValue={qsoMode} />
+            <TextFieldPart cardKey='Exchange' cardValue={qsoExchange} />
+            <TextFieldPart cardKey='Signal' cardValue={qsoSignal.toString()} />
+            <PseTnxPart cardKey='PSE TNX' cardValue={pseTnx} />
+          </QslCard>
         </div>
-        <div>
-          <UrInfoForm urInfoHandlerCallback={handleSetInfoData} />
+      ) : (
+        <div className='print-hidden'>
+          <header>
+            <HeaderComponent />
+          </header>
+          <main>
+            <div>
+              <MyInfoForm myInfoHandlerCallback={handleSetInfoData} />
+            </div>
+            <div>
+              <UrInfoForm urInfoHandlerCallback={handleSetInfoData} />
+            </div>
+            <hr />
+            <QslCard>
+              <TextFieldPart cardKey='My Name' cardValue={myName} />
+              <CallsignPart
+                callsignKey='My Callsign'
+                callsignValue={myCallsign}
+              />
+              <TextFieldPart cardKey='Return City' cardValue={myCity} />
+              <TextFieldPart cardKey='Return County' cardValue={myCounty} />
+              <TextFieldPart cardKey='Return Country' cardValue={myCountry} />
+              <TextFieldPart
+                cardKey='My CQ Zone'
+                cardValue={myCqZone.toString()}
+              />
+              <TextFieldPart
+                cardKey='My ARRL Section'
+                cardValue={myArrlSection}
+              />
+              <TextFieldPart cardKey='My Grid' cardValue={myGrid} />
+              <TextFieldPart cardKey='UR Name' cardValue={urname} />
+              <CallsignPart
+                callsignKey='UR Callsign'
+                callsignValue={urCallsign}
+              />
+              <TextFieldPart cardKey='Date' cardValue={qsoDate} />
+              <TextFieldPart cardKey='Time' cardValue={qsoTime} />
+              <TextFieldPart cardKey='Band MHz' cardValue={qsoBandMhz} />
+              <TextFieldPart cardKey='Mode' cardValue={qsoMode} />
+              <TextFieldPart cardKey='Exchange' cardValue={qsoExchange} />
+              <TextFieldPart
+                cardKey='Signal'
+                cardValue={qsoSignal.toString()}
+              />
+              <PseTnxPart cardKey='PSE TNX' cardValue={pseTnx} />
+            </QslCard>
+            <button className='print-button' onClick={handlePrintChange}>
+              Print Card
+            </button>
+          </main>
+          <footer>
+            <FooterComponent />
+          </footer>
         </div>
-        <hr />
-        <QslCard>
-          <TextFieldPart cardKey='My Name' cardValue={myName} />
-          <CallsignPart callsignKey='My Callsign' callsignValue={myCallsign} />
-          <TextFieldPart cardKey='Return City' cardValue={myCity} />
-          <TextFieldPart cardKey='Return County' cardValue={myCounty} />
-          <TextFieldPart cardKey='Return Country' cardValue={myCountry} />
-          <TextFieldPart cardKey='My CQ Zone' cardValue={myCqZone.toString()} />
-          <TextFieldPart cardKey='My ARRL Section' cardValue={myArrlSection} />
-          <TextFieldPart cardKey='My Grid' cardValue={myGrid} />
-          <TextFieldPart cardKey='UR Name' cardValue={urname} />
-          <CallsignPart callsignKey='UR Callsign' callsignValue={urCallsign} />
-          <TextFieldPart cardKey='Date' cardValue={qsoDate} />
-          <TextFieldPart cardKey='Time' cardValue={qsoTime} />
-          <TextFieldPart cardKey='Band MHz' cardValue={qsoBandMhz} />
-          <TextFieldPart cardKey='Mode' cardValue={qsoMode} />
-          <TextFieldPart cardKey='Exchange' cardValue={qsoExchange} />
-          <TextFieldPart cardKey='Signal' cardValue={qsoSignal.toString()} />
-          <PseTnxPart cardKey='PSE TNX' cardValue={pseTnx} />
-        </QslCard>
-        <button className='print-button' onClick={handlePrintChange}>
-          Print Card
-        </button>
-        <PostcardAddressSide senderFields={{}} />
-      </main>
-      <footer>
-        <FooterComponent />
-      </footer>
+      )}
     </div>
   );
 }
