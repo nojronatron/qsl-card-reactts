@@ -5,7 +5,7 @@
     margin: 0px;
     padding: 0px;
   }
-  
+
   .qsl-card-container {
     visibility: visible;
     display: block;
@@ -21,7 +21,8 @@
     margin: 0px;
     padding: 0px;
     /* use absolute url for background image */
-    background: url('http://localhost:5173/background490x382.png') no-repeat center center;
+    background: url('http://localhost:5173/background490x382.png') no-repeat
+      center center;
     background-size: cover; /* ensure background image convers entire block */
     --webkit-print-color-adjust: exact; /* ensure background image is printed */
     print-color-adjust: exact; /* ensure background image is printed */

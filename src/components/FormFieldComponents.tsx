@@ -10,13 +10,13 @@ export const PseTnxPart: React.FC<{
       .toLowerCase()
       .replaceAll(/\s/g, '-')
       .replaceAll(/\(|\)|\//g, '');
-    console.log(`PseTnx: lowerKey: ${lowerKey}`);
+    // console.log(`PseTnx: lowerKey: ${lowerKey}`);
     const parentDivId = 'qsl-parentdiv-' + lowerKey;
-    console.log(`PseTnx: parentDivId: ${parentDivId}`);
+    // console.log(`PseTnx: parentDivId: ${parentDivId}`);
     const valueId = lowerKey + '-value';
-    console.log(`PseTnx: valueId: ${valueId}`);
+    // console.log(`PseTnx: valueId: ${valueId}`);
     const labelId = lowerKey + '-label';
-    console.log(`PseTnx: labelId: ${labelId}`);
+    // console.log(`PseTnx: labelId: ${labelId}`);
     const displayValue = cardValue.toUpperCase();
 
     return (
@@ -45,13 +45,13 @@ export const CallsignPart: React.FC<{
       .toLowerCase()
       .replaceAll(/\s/g, '-')
       .replaceAll(/\(|\)|\//g, '');
-    console.log(`MyCallsign: cardKey: ${cardKey}`);
+    // console.log(`MyCallsign: cardKey: ${cardKey}`);
     const valueId = cardKey + '-value';
-    console.log(`MyCallsign: valueId: ${valueId}`);
+    // console.log(`MyCallsign: valueId: ${valueId}`);
     const labelId = cardKey + '-label';
-    console.log(`MyCallsign: labelId: ${labelId}`);
+    // console.log(`MyCallsign: labelId: ${labelId}`);
     const parentDivId = 'qsl-parentdiv-' + cardKey;
-    console.log(`MyCallsign: parentDivId: ${parentDivId}`);
+    // console.log(`MyCallsign: parentDivId: ${parentDivId}`);
 
     return (
       <div key={cardKey} className='qsl-card-infocell' id={parentDivId}>
