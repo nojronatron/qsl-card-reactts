@@ -29,6 +29,10 @@
     font-weight: 300;
     font-size: 0.6rem;
   }
+
+  .stamp-block {
+    visibility: hidden;
+  }
 }
 
 @media screen and (min-width: 600px) {
@@ -309,6 +313,54 @@
     font-weight: 300;
     font-size: 0.5rem;
   }
+
+  /* temp css for address side of postcard */
+
+  .address-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .address-card-block {
+    /* set for 4x6 card - should change this to be dynamic */
+    width: 490px;
+    height: 354px;
+    position: relative;
+    border: black solid 1px;
+  }
+
+  .return-person-block-class {
+    max-width: fit-content;
+    padding: 0.3rem 1rem;
+    border-right: black solid 1px;
+  }
+
+  .addressee-block-class {
+    position: absolute;
+    max-width: fit-content;
+    padding: 0.3rem 1rem;
+    right: 0px;
+    bottom: 30px;
+    border-top: black solid 1px;
+  }
+
+  .stamp-block {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    border: black dotted 1px;
+  }
+
+  .stamp-content {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* end temp css for address side of postcard */
 }
 
 button {

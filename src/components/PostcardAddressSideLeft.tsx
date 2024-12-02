@@ -1,64 +1,101 @@
-const PostcardReturnAddress: React.FC<{ returnAddress: string }> = ({
-  returnAddress,
+const PostcardReturnAddressElement: React.FC<{
+  cardKey: string;
+  cardId: string;
+  cardClassName: string;
+  personName: string;
+  personCallsign: string;
+  personAddress: string;
+  personCity: string;
+  personState: string;
+  personZip: string;
+  personCountry: string;
+}> = ({
+  cardKey,
+  cardId,
+  cardClassName,
+  personName,
+  personCallsign,
+  personAddress,
+  personCity,
+  personState,
+  personZip,
+  personCountry,
 }) => {
+  const [itemKey, itemId] = GetKeyAndId({ cardKey, iam: cardId });
+  // className='return-name-block'
+  console.log('PostCardReturnAddressElement is rendering itemId:', itemId);
+
   return (
-    <div className='return-address-block'>
-      <div className='return-address-label'>Return Address:</div>
-      <div className='return-address-content'>{returnAddress}</div>
+    <div key={itemKey} className={cardClassName}>
+      <div className='return-label-from'>From:</div>
+      <div className='return-label-name'>
+        {personName} {personCallsign}
+      </div>
+      <div className='return-label-address'>{personAddress}</div>
+      <div className='return-label-city-state-zip'>
+        {personCity}, {personState} {personZip}
+      </div>
+      <div className='return-label-country'>{personCountry}</div>
     </div>
   );
 };
 
-const PostcardReturnName: React.FC<{ returnName: string }> = ({
-  returnName,
+const PostcardAddresseeElement: React.FC<{
+  cardKey: string;
+  cardId: string;
+  cardClassName: string;
+  personName: string;
+  personCallsign: string;
+  personAddress: string;
+  personCity: string;
+  personState: string;
+  personZip: string;
+  personCountry: string;
+}> = ({
+  cardKey,
+  cardId,
+  cardClassName,
+  personName,
+  personCallsign,
+  personAddress,
+  personCity,
+  personState,
+  personZip,
+  personCountry,
 }) => {
+  const [itemKey, itemId] = GetKeyAndId({ cardKey, iam: cardId });
+  // className='addressee-name-block'?
+  console.log('PostCardAddresseeElement is rendering itemId:', itemId);
+
   return (
-    <div className='return-name-block'>
-      <div className='return-name-label'>Return Name:</div>
-      <div className='return-name-content'>{returnName}</div>
+    <div key={itemKey} className={cardClassName}>
+      <div className='return-label-from'>To:</div>
+      <div className='return-label-name'>
+        {personName} {personCallsign}
+      </div>
+      <div className='return-label-address'>{personAddress}</div>
+      <div className='return-label-city-state-zip'>
+        {personCity}, {personState} {personZip}
+      </div>
+      <div className='return-label-country'>{personCountry}</div>
     </div>
   );
 };
 
-const PostCardReturnCityStatePost: React.FC<{
-  returnCity: string;
-  returnState: string;
-  returnZip: string;
-}> = ({ returnCity, returnState, returnZip }) => {
-  return (
-    <div className='return-city-block'>
-      <div className='return-city-label'>Return City:</div>
-      <div className='return-city-content'>{returnCity}</div>
-    </div>
-  );
+const GetKeyAndId = ({
+  iam,
+  cardKey,
+}: {
+  iam: string;
+  cardKey: string;
+}): string[] => {
+  const lowerKey = cardKey
+    .toLowerCase()
+    .replace(/\s/g, '-')
+    .replace(/\(|\)|\//g, '');
+  const returnLabelKey = `${iam}-${lowerKey}`;
+  const valueId = `${iam}-${lowerKey}-value`;
+  return [returnLabelKey, valueId];
 };
 
-const PostcardReturnCountry: React.FC<{ returnCountry: string }> = ({
-  returnCountry,
-}) => {
-  return (
-    <div className='return-country-block'>
-      <div className='return-country-label'>Return Country:</div>
-      <div className='return-country-content'>{returnCountry}</div>
-    </div>
-  );
-};
-
-const PostcardSenderMessage: React.FC<{ senderMessage: string }> = ({
-  senderMessage,
-}) => {
-  return (
-    <div className='sender-message-block'>
-      <div className='sender-message-label'>Sender Message:</div>
-      <div className='sender-message-content'>{senderMessage}</div>
-    </div>
-  );
-};
-
-export {
-  PostcardReturnAddress,
-  PostcardReturnName,
-  PostCardReturnCityStatePost,
-  PostcardReturnCountry,
-  PostcardSenderMessage,
-};
+export { PostcardReturnAddressElement, PostcardAddresseeElement };

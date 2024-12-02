@@ -1,21 +1,14 @@
 import { useState } from 'react';
+import AddressCard from './components/AddressCard';
 import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import MyInfoForm from './components/MyInfoForm';
 import {
-  PostcardReturnAddress,
-  PostcardReturnName,
-  PostCardReturnCityStatePost,
-  PostcardReturnCountry,
-  PostcardSenderMessage,
+  PostcardReturnAddressElement,
+  PostcardAddresseeElement,
 } from './components/PostcardAddressSideLeft';
-import {
-  PostcardRecipientAddress,
-  PostcardRecipientName,
-  PostcardRecipientCityStatePost,
-  PostcardRecipientCountry,
-} from './components/PostcardAddressSideRight';
 import QslCard from './components/QslCard';
+import StampElement from './components/StampElement';
 import UrInfoForm from './components/UrInfoForm';
 import './App.css';
 import './print.css';
@@ -186,24 +179,6 @@ function App() {
     <div>
       {printVisibility ? (
         <div className='print-visible'>
-          <PostcardReturnAddress returnAddress={myReturnAddress} />
-          <PostcardReturnName returnName={myName} />
-          <PostCardReturnCityStatePost
-            returnCity={myCity}
-            returnState={myState}
-            returnZip={myReturnZip}
-          />
-          <PostcardReturnCountry returnCountry={myCountry} />
-          <PostcardSenderMessage senderMessage={pseTnx} />
-          <PostcardRecipientAddress senderAddress={urAddress} />
-          <PostcardRecipientName name={urname} />
-          <PostcardRecipientCityStatePost
-            city={urCity}
-            state={urState}
-            zip={urZip}
-          />
-          <PostcardRecipientCountry country={urCountry} />
-
           <QslCard>
             <TextFieldPart cardKey='My Name' cardValue={myName} />
             <CallsignPart
@@ -235,6 +210,9 @@ function App() {
             <TextFieldPart cardKey='Signal' cardValue={qsoSignal.toString()} />
             <PseTnxPart cardKey='PSE TNX' cardValue={pseTnx} />
           </QslCard>
+          <button className='print-button' onClick={handlePrintChange}>
+            Return To Form
+          </button>
         </div>
       ) : (
         <div className='print-hidden'>
@@ -248,6 +226,34 @@ function App() {
             <div>
               <UrInfoForm urInfoHandlerCallback={handleSetInfoData} />
             </div>
+            <hr />
+            <AddressCard>
+              <PostcardReturnAddressElement
+                cardKey='return person'
+                cardId='return person block'
+                cardClassName='return-person-block-class'
+                personName={myName}
+                personCallsign={myCallsign}
+                personAddress={myReturnAddress}
+                personCity={myCity}
+                personState={myState}
+                personZip={myReturnZip}
+                personCountry={myCountry}
+              />
+              <PostcardAddresseeElement
+                cardKey='addressee'
+                cardId='addressee block'
+                cardClassName='addressee-block-class'
+                personName={urname}
+                personCallsign={urCallsign}
+                personAddress={urAddress}
+                personCity={urCity}
+                personState={urState}
+                personZip={urZip}
+                personCountry={urCountry}
+              />
+              <StampElement />
+            </AddressCard>
             <hr />
             <QslCard>
               <TextFieldPart cardKey='My Name' cardValue={myName} />
