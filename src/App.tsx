@@ -75,9 +75,11 @@ function App() {
         if (itemValue !== myCountry) setMyCountry(itemValue.toUpperCase());
         break;
       case 'mycqzone':
-        let parsedInput = parseInt(itemValue);
-        if (Number.isNaN(parsedInput)) setMyCqZone(-1);
-        if (parsedInput !== myCqZone) setMyCqZone(parsedInput);
+        {
+          const parsedInput = parseInt(itemValue);
+          if (Number.isNaN(parsedInput)) setMyCqZone(-1);
+          if (parsedInput !== myCqZone) setMyCqZone(parsedInput);
+        }
         break;
       case 'myarrlsection':
         if (itemValue !== myArrlSection)
@@ -85,11 +87,10 @@ function App() {
         break;
       case 'mygrid':
         if (itemValue !== myGrid) {
-          let tempGrid = itemValue.trim();
-          let firstTwoChars = tempGrid.substring(0, 2).toUpperCase();
-          let remainingChars = tempGrid.substring(2).toLowerCase();
-          let newValue = `${firstTwoChars}${remainingChars}`;
-          setMyGrid(newValue);
+          const tempGrid = itemValue.trim();
+          const firstTwoChars = tempGrid.substring(0, 2).toUpperCase();
+          const remainingChars = tempGrid.substring(2).toLowerCase();
+          setMyGrid(`${firstTwoChars}${remainingChars}`);
         }
         break;
       case 'urname':
@@ -114,19 +115,21 @@ function App() {
         if (itemValue !== urCountry) setUrCountry(itemValue.toUpperCase());
         break;
       case 'qsotime':
-        let tempTime = itemValue.trim();
-        if (
-          tempTime.indexOf(':') > -1 &&
-          tempTime.length > 3 &&
-          tempTime.length < 6
-        ) {
-          setQsoTime(tempTime);
-        } else {
-          console.log(
-            'Setting blank qsotime to state (it does not have a colon or is not 4 or 5 characters long):',
-            tempTime
-          );
-          setQsoTime('');
+        {
+          const tempTime = itemValue.trim();
+          if (
+            tempTime.indexOf(':') > -1 &&
+            tempTime.length > 3 &&
+            tempTime.length < 6
+          ) {
+            setQsoTime(tempTime);
+          } else {
+            console.log(
+              'Setting blank qsotime to state (it does not have a colon or is not 4 or 5 characters long):',
+              tempTime
+            );
+            setQsoTime('');
+          }
         }
         break;
       case 'qsobandmhz':
@@ -141,11 +144,13 @@ function App() {
         if (itemValue !== qsoExchange) setQsoExchange(itemValue);
         break;
       case 'qsosignal':
-        let parsedSignal = parseInt(itemValue);
-        if (Number.isNaN(parsedSignal)) {
-          setQsoSignal(-1);
-        } else if (parsedSignal !== qsoSignal) {
-          setQsoSignal(parseInt(itemValue));
+        {
+          const parsedSignal = parseInt(itemValue);
+          if (Number.isNaN(parsedSignal)) {
+            setQsoSignal(-1);
+          } else if (parsedSignal !== qsoSignal) {
+            setQsoSignal(parseInt(itemValue));
+          }
         }
         break;
       case 'psetnx':
