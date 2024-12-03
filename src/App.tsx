@@ -19,7 +19,7 @@ import './App.css';
 
 function App() {
   const [buttonText, setButtonText] = useState('View print preview');
-  const [printVisibility, setPrintVisibility] = useState(false);
+  const [viewPrintPreview, setViewPrintPreview] = useState(false);
 
   const [myCallsign, setMyCallsign] = useState('');
   const [myName, setMyName] = useState('');
@@ -114,6 +114,7 @@ function App() {
         if (itemValue !== urZip) setUrZip(itemValue);
         break;
       case 'urcountry':
+        console.log('switch case urcountry itemValue:', itemValue);
         if (itemValue !== urCountry) setUrCountry(itemValue.toUpperCase());
         break;
       case 'qsotime':
@@ -172,21 +173,23 @@ function App() {
   }
 
   function handlePrintChange() {
-    setButtonText(printVisibility ? 'Return to form' : 'View print preview');
-    setPrintVisibility(!printVisibility);
+    setButtonText(
+      buttonText == 'Return to form' ? 'View print preview' : 'Return to form'
+    );
+    setViewPrintPreview(!viewPrintPreview);
   }
 
   return (
     <div>
-      {!printVisibility && <HeaderComponent />}
+      {!viewPrintPreview && <HeaderComponent />}
       <main>
-        {!printVisibility && (
+        {!viewPrintPreview && (
           <MyInfoForm myInfoHandlerCallback={handleSetInfoData} />
         )}
-        {!printVisibility && (
+        {!viewPrintPreview && (
           <UrInfoForm urInfoHandlerCallback={handleSetInfoData} />
         )}
-        {!printVisibility && <hr />}
+        {!viewPrintPreview && <hr />}
         <div className='qsl-card-and-address'>
           <QslCard>
             <TextFieldPart cardKey='My Name' cardValue={myName} />
@@ -196,6 +199,7 @@ function App() {
             />
             <TextFieldPart cardKey='Return City' cardValue={myCity} />
             <TextFieldPart cardKey='Return County' cardValue={myCounty} />
+            <TextFieldPart cardKey='Return State' cardValue={myState} />
             <TextFieldPart cardKey='Return Country' cardValue={myCountry} />
             <TextFieldPart
               cardKey='My CQ Zone'
@@ -211,6 +215,7 @@ function App() {
               callsignKey='UR Callsign'
               callsignValue={urCallsign}
             />
+            <TextFieldPart cardKey='Ur Country' cardValue={urCountry} />
             <TextFieldPart cardKey='Date' cardValue={qsoDate} />
             <TextFieldPart cardKey='Time' cardValue={qsoTime} />
             <TextFieldPart cardKey='Band MHz' cardValue={qsoBandMhz} />
@@ -251,7 +256,7 @@ function App() {
           {buttonText}
         </button>
       </main>
-      {!printVisibility && <FooterComponent />}
+      {!viewPrintPreview && <FooterComponent />}
     </div>
   );
 }
