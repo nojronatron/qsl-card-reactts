@@ -1,4 +1,4 @@
-const StampElement: React.FC = ({}) => {
+const StampElement: React.FC = () => {
   return (
     <div className='stamp-block'>
       <div className='stamp-content'>Affix</div>
