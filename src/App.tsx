@@ -15,7 +15,7 @@ import {
   PseTnxPart,
   TextFieldPart,
 } from './components/FormFieldComponents';
-import './App.css';
+import './assets/App.css';
 
 function App() {
   const [buttonText, setButtonText] = useState('View print preview');
