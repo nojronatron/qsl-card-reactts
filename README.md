@@ -4,16 +4,16 @@ This project was bootstrapped with `bun create vite {project}` and uses React + 
 
 ## Project Goals
 
-- [ ] Learn about Bun.
-- [ ] Learn TypeScript.
-- [ ] Learn what the `src/assets` directory is for.
-- [ ] Develop a useful webapp that generates a Ham QSL Card.
-- [ ] Practice developing with React.
+- [x] Learn about Bun.
+- [x] Learn _introductory_ TypeScript concepts and syntax.
+- [x] Learn what the `src/assets` directory is for (css, images, other static files).
+- [x] Develop a useful webapp that generates a Ham QSL Card.
+- [x] Practice developing with React.
 
 ## Stretch Goals
 
-- Make the QSL Card printable to a 3.5 x 3.5 inch postcard.
-- Deploy publically to Netlify or similar.
+- [x] Make the QSL Card printable to a 4 x 6 inch postcard.
+- [ ] Deploy publicly to Netlify or similar.
 
 ## About Bun React Typescript Vite
 
@@ -37,7 +37,7 @@ export default tseslint.config({
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -46,7 +46,7 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from 'eslint-plugin-react';
 
 export default tseslint.config({
   // Set the react version
@@ -61,5 +61,5 @@ export default tseslint.config({
     ...react.configs.recommended.rules,
     ...react.configs['jsx-runtime'].rules,
   },
-})
+});
 ```
