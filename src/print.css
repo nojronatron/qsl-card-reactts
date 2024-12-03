@@ -25,251 +25,184 @@
     print-color-adjust: exact; /* ensure background image is printed */
   }
 
-  .qsl-card-block {
-    width: 100%;
-    height: 100%;
-    position: relative;
+  /* set for 4x6 card - should change this to be dynamic */
+  /* .qsl-card-block {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      border: black solid 1px;
+      margin: 0;
+      padding: 0;
+    } */
+
+  .qsl-card-container {
+    min-width: 650px;
+    max-width: 650px;
+    min-height: 430px;
+    max-height: 430px;
     margin: 0;
     padding: 0;
+    position: relative;
+    background-image: url('/background676x380.png');
+    background-size: cover;
+  }
+
+  /* begin MY */
+  #qsl-parentdiv-my-name {
+    top: 10px;
+    left: 20px;
+  }
+
+  #qsl-parentdiv-my-callsign {
+    top: 10px;
+    left: 120px;
+  }
+
+  #qsl-parentdiv-return-city {
+    top: 64px;
+    left: 20px;
+  }
+
+  #qsl-parentdiv-return-county {
+    top: 172px;
+    right: 20px;
+  }
+
+  #qsl-parentdiv-return-country {
+    top: 118px;
+    left: 20px;
+  }
+
+  #qsl-parentdiv-return-state {
+    top: 64px;
+    left: 120px;
+  }
+
+  #qsl-parentdiv-my-cq-zone {
+    top: 10px;
+    right: 20px;
+  }
+
+  #qsl-parentdiv-my-arrl-section {
+    top: 64px;
+    right: 20px;
+  }
+
+  #qsl-parentdiv-my-grid {
+    top: 118px;
+    right: 20px;
+  }
+  /* end MY */
+
+  /* begin UR */
+  #qsl-parentdiv-ur-name {
+    width: 260px;
+    top: 260px;
+    left: 20px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-ur-callsign {
+    top: 260px;
+    left: 298px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-ur-country {
+    width: 610px;
+    top: 368px;
+    left: 20px;
+    text-align: center;
+  }
+  /* end UR */
+
+  /* begin QSO Data */
+  #qsl-parentdiv-date {
+    width: 92px;
+    top: 260px;
+    left: 400px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-time {
+    width: 56px;
+    top: 260px;
+    left: 500px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-band-mhz {
+    top: 314px;
+    left: 20px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-mode {
+    top: 314px;
+    left: 112px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-signal {
+    top: 314px;
+    left: 342px;
+    text-align: center;
+  }
+
+  #qsl-parentdiv-exchange {
+    width: 220px;
+    top: 314px;
+    right: 20px;
+    text-align: center;
+  }
+  /* end qso data */
+
+  #qsl-parentdiv-pse-tnx {
+    top: 260px;
+    right: 20px;
+    text-align: center;
   }
 
   .qsl-card-content {
     font-weight: 700;
     font-size: 0.7rem;
+    padding: 3px 10px; /* must pad AD the content level */
   }
 
   .qsl-card-infocell {
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
     background-color: rgba(220, 220, 220, 0.9);
     border-radius: 4px;
-    padding: 1px 6px;
   }
 
   .qsl-card-label {
     font-weight: 300;
     font-size: 0.5rem;
+    padding: 2px 10px;
   }
 
-  /* FROM (main)*/
-  #qsl-parentdiv-my-name {
-    position: absolute;
-    width: fit-content;
-    top: 10px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #qsl-parentdiv-my-callsign {
-    position: absolute;
-    width: fit-content;
-    top: 51px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-    div {
-      font-variant: small-caps;
-      font-size: 0.74rem;
-    }
-  }
-
-  #qsl-parentdiv-return-city {
-    position: absolute;
-    width: fit-content;
-    top: 92px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #qsl-parentdiv-return-county {
-    position: absolute;
-    width: fit-content;
-    top: 133px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #qsl-parentdiv-return-country {
-    position: absolute;
-    width: fit-content;
-    top: 173px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #qsl-parentdiv-return-state {
-    position: absolute;
-    width: fit-content;
-    top: 184px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #qsl-parentdiv-my-city {
-    position: absolute;
-    width: fit-content;
-    top: 92px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #qsl-parentdiv-my-county {
-    position: absolute;
-    width: fit-content;
-    top: 143px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #qsl-parentdiv-my-state {
-    position: absolute;
-    width: fit-content;
-    top: 184px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  /* end from main */
-
-  /* FROM (other) */
-  #qsl-parentdiv-my-cq-zone {
-    position: absolute;
-    width: fit-content;
-    top: 10px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  #qsl-parentdiv-my-arrl-section {
-    position: absolute;
-    width: fit-content;
-    top: 51px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    div {
-      font-variant: small-caps;
-      font-size: 0.74rem;
-    }
-  }
-
-  #qsl-parentdiv-my-grid {
-    position: absolute;
-    width: fit-content;
-    top: 92px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  /* TO (main) */
-  #qsl-parentdiv-ur-name {
-    position: absolute;
-    width: 377px;
-    bottom: 63px;
-    right: 20px;
-    text-align: right;
-  }
-
-  #qsl-parentdiv-ur-callsign {
-    position: absolute;
-    width: fit-content;
-    bottom: 63px;
-    left: 20px;
-    div {
-      font-variant: small-caps;
-      font-size: 0.74rem;
-    }
-    text-align: left;
-  }
-  /* end to main */
-
-  /* QSO Data */
-  #qsl-parentdiv-date {
-    position: absolute;
-    width: fit-content;
-    bottom: 113px;
-    left: 255px;
-    text-align: center;
-  }
-
-  #qsl-parentdiv-time {
-    position: absolute;
-    width: fit-content;
-    bottom: 113px;
-    left: 344px;
-    text-align: center;
-  }
-
-  #qsl-parentdiv-band-mhz {
-    position: absolute;
-    width: fit-content;
-    bottom: 12px;
-    left: 20px;
-    text-align: left;
-  }
-
-  #qsl-parentdiv-mode {
-    position: absolute;
-    width: fit-content;
-    bottom: 12px;
-    left: 99px;
-    text-align: center;
-  }
-
-  #qsl-parentdiv-signal {
-    position: absolute;
-    width: fit-content;
-    bottom: 12px;
-    left: 165px;
-    text-align: center;
-  }
-
-  #qsl-parentdiv-exchange {
-    position: absolute;
-    width: 230px;
-    bottom: 12px;
-    right: 20px;
-    text-align: right;
-  }
-
-  #qsl-parentdiv-pse-tnx {
-    position: absolute;
-    width: fit-content;
-    bottom: 113px;
-    right: 20px;
-    text-align: center;
-  }
-
-  /* address side of postcard */
+  /* temp css for address side of postcard */
 
   .address-card-container {
-    display: block;
-    min-width: 652px;
-    max-width: 652px;
-    min-height: 434px;
-    max-height: 434px;
+    visibility: visible;
+    position: relative;
+    min-width: 650px;
+    max-width: 650px;
+    min-height: 430px;
+    max-height: 430px;
     margin: 0;
     padding: 0;
-    visibility: visible;
-    page-break-before: always !important; /* address card on page 2 */
   }
 
-  .address-card-block {
-    width: 490px;
-    height: 34px;
-    position: relative;
-    border: black solid 1px;
-  }
+  /* set for 4x6 card - should change this to be dynamic */
+  /* .address-card-block {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      border: black solid 1px;
+    } */
 
   .return-person-block-class {
     max-width: fit-content;
@@ -279,17 +212,11 @@
 
   .addressee-block-class {
     position: absolute;
-    font-size: 1rem;
     max-width: fit-content;
     padding: 0.3rem 1rem;
     right: 0px;
     bottom: 30px;
     border-top: black solid 1px;
-  }
-
-  .qsl-card-and-address {
-    margin: 0;
-    padding: 0;
   }
 
   .stamp-block {
@@ -306,7 +233,18 @@
     font-size: 0.8rem;
     padding: 0.2rem 0.5rem;
   }
-  /* end address side of postcard */
+
+  .qsl-card-and-address {
+    display: block;
+    position: relative;
+  }
+
+  .return-label-name,
+  .return-label-address,
+  .return-label-city-state-zip,
+  .return-label-country {
+    font-size: 1.2rem;
+  }
 
   /* print button should not impact print preview */
   .print-button {
