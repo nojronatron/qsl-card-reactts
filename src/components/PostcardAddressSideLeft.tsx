@@ -21,7 +21,7 @@ const PostcardReturnAddressElement: React.FC<{
   personZip,
   personCountry,
 }) => {
-  const [itemKey, itemId] = GetKeyAndId({ cardKey, iam: cardId });
+  const itemKey = GetKeyAndId({ cardKey, iam: cardId });
 
   return (
     <div key={itemKey} className={cardClassName}>
@@ -61,7 +61,7 @@ const PostcardAddresseeElement: React.FC<{
   personZip,
   personCountry,
 }) => {
-  const [itemKey, itemId] = GetKeyAndId({ cardKey, iam: cardId });
+  const itemKey = GetKeyAndId({ cardKey, iam: cardId });
 
   return (
     <div key={itemKey} className={cardClassName}>
@@ -84,15 +84,13 @@ const GetKeyAndId = ({
 }: {
   iam: string;
   cardKey: string;
-}): string[] => {
+}): string => {
   const lowerKey = cardKey
     .toLowerCase()
     .replace(/\s/g, '-')
     .replace(/\(|\)|\//g, '');
-  const returnLabelKey = `${iam}-${lowerKey}`;
-  const valueId = `${iam}-${lowerKey}-value`;
 
-  return [returnLabelKey, valueId];
+  return `${iam}-${lowerKey}`;
 };
 
 export { PostcardReturnAddressElement, PostcardAddresseeElement };
