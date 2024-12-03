@@ -49,9 +49,6 @@ function App() {
   const [pseTnx, setPseTnx] = useState('pse');
 
   function handleSetInfoData(itemName: string, itemValue: string) {
-    console.log(
-      `App.handleSetInfoData received: itemName: ${itemName}, itemValue: ${itemValue}`
-    );
     switch (itemName.toLowerCase()) {
       case 'myname':
         if (itemValue !== myName) setMyName(itemValue);
@@ -114,21 +111,15 @@ function App() {
         if (itemValue !== urZip) setUrZip(itemValue);
         break;
       case 'urcountry':
-        console.log('switch case urcountry itemValue:', itemValue);
         if (itemValue !== urCountry) setUrCountry(itemValue.toUpperCase());
         break;
       case 'qsotime':
-        console.log('qsotime:', itemValue);
         let tempTime = itemValue.trim();
         if (
           tempTime.indexOf(':') > -1 &&
           tempTime.length > 3 &&
           tempTime.length < 6
         ) {
-          console.log(
-            'Setting qsotime to state (it has a colon and is either 4 or 5 characters long):',
-            tempTime
-          );
           setQsoTime(tempTime);
         } else {
           console.log(
@@ -139,7 +130,6 @@ function App() {
         }
         break;
       case 'qsobandmhz':
-        console.log('qsobandmhz itemValue:', itemValue);
         if (itemValue !== qsoBandMhz) {
           setQsoBandMhz(itemValue);
         }
@@ -159,7 +149,6 @@ function App() {
         }
         break;
       case 'psetnx':
-        console.log('psetnx current, from callback:', pseTnx, itemValue);
         setPseTnx(itemValue);
         break;
       case 'qsodate':

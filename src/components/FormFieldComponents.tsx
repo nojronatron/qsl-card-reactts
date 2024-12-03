@@ -10,20 +10,16 @@ export const PseTnxPart: React.FC<{
       .toLowerCase()
       .replaceAll(/\s/g, '-')
       .replaceAll(/\(|\)|\//g, '');
-    // console.log(`PseTnx: lowerKey: ${lowerKey}`);
     const parentDivId = 'qsl-parentdiv-' + lowerKey;
-    // console.log(`PseTnx: parentDivId: ${parentDivId}`);
     const valueId = lowerKey + '-value';
-    // console.log(`PseTnx: valueId: ${valueId}`);
     const labelId = lowerKey + '-label';
-    // console.log(`PseTnx: labelId: ${labelId}`);
     const displayValue = cardValue.toUpperCase();
 
     return (
       <div key={lowerKey} className='qsl-card-infocell' id={parentDivId}>
-        <label htmlFor={valueId} className='qsl-card-label' id={labelId}>
+        <div className='qsl-card-label' id={labelId}>
           PSE or TNX?
-        </label>
+        </div>
         <div id={valueId} className='qsl-card-content'>
           {displayValue}
         </div>
@@ -32,7 +28,6 @@ export const PseTnxPart: React.FC<{
   }
 };
 
-// todo: what if callsign has a slash in it
 export const CallsignPart: React.FC<{
   callsignKey: string;
   callsignValue: string;
@@ -45,19 +40,15 @@ export const CallsignPart: React.FC<{
       .toLowerCase()
       .replaceAll(/\s/g, '-')
       .replaceAll(/\(|\)|\//g, '');
-    // console.log(`MyCallsign: cardKey: ${cardKey}`);
     const valueId = cardKey + '-value';
-    // console.log(`MyCallsign: valueId: ${valueId}`);
     const labelId = cardKey + '-label';
-    // console.log(`MyCallsign: labelId: ${labelId}`);
     const parentDivId = 'qsl-parentdiv-' + cardKey;
-    // console.log(`MyCallsign: parentDivId: ${parentDivId}`);
 
     return (
       <div key={cardKey} className='qsl-card-infocell' id={parentDivId}>
-        <label htmlFor={valueId} className='qsl-card-label' id={labelId}>
+        <div className='qsl-card-label' id={labelId}>
           {callsignKey}
-        </label>
+        </div>
         <div id={valueId} className='qsl-card-content'>
           {callsignValue}
         </div>
@@ -85,9 +76,9 @@ export const TextFieldPart: React.FC<{
 
     return (
       <div key={lowerKey} className='qsl-card-infocell' id={parentDivId}>
-        <label htmlFor={valueId} className='qsl-card-label' id={labelId}>
+        <div className='qsl-card-label' id={labelId}>
           {cardKey}
-        </label>
+        </div>
         <div id={valueId} className='qsl-card-content'>
           {cardValue}
         </div>
@@ -96,7 +87,6 @@ export const TextFieldPart: React.FC<{
   }
 };
 
-// write an export function that can handle date field
 export const QsoDatePart: React.FC<{
   cardKey: string;
   cardValue: Date;
@@ -112,14 +102,13 @@ export const QsoDatePart: React.FC<{
     const valueId = lowerKey + '-value';
     const labelId = lowerKey + '-label';
     const parentDivId = 'qsl-parentdiv-' + cardKey;
-
     const formattedDate = cardValue.toLocaleDateString();
 
     return (
       <div key={lowerKey} className='qsl-card-infocell' id={parentDivId}>
-        <label htmlFor={valueId} className='qsl-card-label' id={labelId}>
+        <div className='qsl-card-label' id={labelId}>
           {cardKey}
-        </label>
+        </div>
         <div id={valueId} className='qsl-card-content'>
           {formattedDate}
         </div>
@@ -128,7 +117,6 @@ export const QsoDatePart: React.FC<{
   }
 };
 
-// write an export function that can handle time field, output in 24-hour format
 export const QsoTimePart: React.FC<{
   cardKey: string;
   cardValue: string;
@@ -147,9 +135,9 @@ export const QsoTimePart: React.FC<{
 
     return (
       <div key={lowerKey} className='qsl-card-infocell' id={parentDivId}>
-        <label htmlFor={valueId} className='qsl-card-label' id={labelId}>
+        <div className='qsl-card-label' id={labelId}>
           {cardKey}
-        </label>
+        </div>
         <div id={valueId} className='qsl-card-content'>
           {cardValue}
         </div>

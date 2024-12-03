@@ -22,8 +22,6 @@ const PostcardReturnAddressElement: React.FC<{
   personCountry,
 }) => {
   const [itemKey, itemId] = GetKeyAndId({ cardKey, iam: cardId });
-  // className='return-name-block'
-  console.log('PostCardReturnAddressElement is rendering itemId:', itemId);
 
   return (
     <div key={itemKey} className={cardClassName}>
@@ -64,8 +62,6 @@ const PostcardAddresseeElement: React.FC<{
   personCountry,
 }) => {
   const [itemKey, itemId] = GetKeyAndId({ cardKey, iam: cardId });
-  // className='addressee-name-block'?
-  console.log('PostCardAddresseeElement is rendering itemId:', itemId);
 
   return (
     <div key={itemKey} className={cardClassName}>
@@ -95,6 +91,7 @@ const GetKeyAndId = ({
     .replace(/\(|\)|\//g, '');
   const returnLabelKey = `${iam}-${lowerKey}`;
   const valueId = `${iam}-${lowerKey}-value`;
+
   return [returnLabelKey, valueId];
 };
 
