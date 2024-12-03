@@ -24,8 +24,7 @@
     visibility: visible;
     display: block;
     /* use absolute url for background image */
-    background: url('http://localhost:5173/background676x380.png') no-repeat
-      center center;
+    background: url('/assets/background676x380.png') no-repeat center center;
     background-size: cover; /* ensure background image convers entire block */
     --webkit-print-color-adjust: exact; /* ensure background image is printed */
     print-color-adjust: exact; /* ensure background image is printed */
