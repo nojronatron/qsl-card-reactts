@@ -1,5 +1,6 @@
 {
   "name": "k7rmz-qso-card",
+  "description": "A QSO card builder site bootstrapped with Bun and built with React and TypeScript",
   "private": true,
   "version": "1.0.0",
   "type": "module",
