@@ -56,6 +56,15 @@
     visibility: hidden;
   }
   /* end address side properties */
+
+  .header-logo {
+    width: 42px;
+    height: 42px;
+    box-shadow: 0px 0px 0px 3px rgba(66, 75, 178, 0.5),
+      0px 0px 2px 4px rgba(249, 199, 16, 0.3);
+    border-radius: 50%;
+    margin: 2px 0px;
+  }
 }
 
 @media screen and (min-width: 600px) {
@@ -185,7 +194,7 @@
     padding: 0;
     position: relative;
     left: 25%;
-    background-image: url('/background676x380.png');
+    background-image: url('src/assets/background676x380.png');
     background-size: cover;
   }
 
@@ -257,6 +266,18 @@
     display: block;
     position: relative;
   }
+
+  .header-logo {
+    width: 52px;
+    height: 52px;
+    box-shadow: 0px 0px 0px 3px rgba(66, 75, 178, 0.5);
+    border-radius: 50%;
+  }
+
+  .header-logo:hover {
+    box-shadow: 0px 0px 0px 3px rgba(66, 75, 178, 0.5),
+      0px 0px 2px 6px rgba(249, 199, 16, 0.3);
+  }
 }
 
 @media screen {
@@ -299,6 +320,11 @@
 
   .header-nav {
     margin-bottom: 0.4rem;
+  }
+
+  .header-title {
+    font-size: 1.1rem;
+    font-weight: 700;
   }
 
   .input-form-container {
