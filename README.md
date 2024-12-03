@@ -2,18 +2,42 @@
 
 This project was bootstrapped with `bun create vite {project}` and uses React + TypeScript + Vite!
 
+## Usage
+
+This application will print a single QSL card using a stock photo (credit: Nojronatron, November 2024).
+
+1. Find some blank 4x6 inch postcard stock and load your printer.
+1. Open the published website and fill out the forms as necessary. None are required but most are usually necessary.
+1. Click 'View print preview' button to see a print-formatted version of the front and back of the QSL card.
+1. Right-click and select 'Print' to open the Print Dialog.
+1. Select the printer, all pages, Landscape layout, paper size of 4x6 inches (or 10x15 cm), print on both sides, flip on _short edge_, and print 'background graphics'.
+
+## Current Features
+
+- Maintain state.
+- Set default background image sized for one entire side of the QSL Card.
+- Enable updating data via input forms.
+- Create a print preview screen.
+
+## Known Issues
+
+- Form fields will go blank after clicking 'View print preview', but the data will remain on both sides of the postcard.
+- You cannot change the background photo.
+- Mail-merge type printing is not available.
+- Some fields might overflow when printed.
+
 ## Project Goals
+
+Initial version:
 
 - [x] Learn about Bun.
 - [x] Learn _introductory_ TypeScript concepts and syntax.
 - [x] Learn what the `src/assets` directory is for (css, images, other static files).
 - [x] Develop a useful webapp that generates a Ham QSL Card.
 - [x] Practice developing with React.
-
-## Stretch Goals
-
 - [x] Make the QSL Card printable to a 4 x 6 inch postcard.
-- [ ] Deploy publicly to Netlify or similar.
+
+Future versions might include new and/or updated features.
 
 ## About Bun React Typescript Vite
 
