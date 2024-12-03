@@ -1,7 +1,5 @@
 function FooterComponent() {
-  return (
-  <div className='footer-text'>Author: K7RMZ aka Nojronatron</div>
-  );
+  return <footer className='footer-text'>Author: K7RMZ aka Nojronatron</footer>;
 }
 
 export default FooterComponent;
