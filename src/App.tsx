@@ -10,15 +10,15 @@ import {
 import QslCard from './components/QslCard';
 import StampElement from './components/StampElement';
 import UrInfoForm from './components/UrInfoForm';
-import './App.css';
-import './print.css';
 import {
   CallsignPart,
   PseTnxPart,
   TextFieldPart,
 } from './components/FormFieldComponents';
+import './App.css';
 
 function App() {
+  const [buttonText, setButtonText] = useState('View print preview');
   const [printVisibility, setPrintVisibility] = useState(false);
 
   const [myCallsign, setMyCallsign] = useState('');
@@ -172,13 +172,22 @@ function App() {
   }
 
   function handlePrintChange() {
+    setButtonText(printVisibility ? 'Return to form' : 'View print preview');
     setPrintVisibility(!printVisibility);
   }
 
   return (
     <div>
-      {printVisibility ? (
-        <div className='print-visible'>
+      {!printVisibility && <HeaderComponent />}
+      <main>
+        {!printVisibility && (
+          <MyInfoForm myInfoHandlerCallback={handleSetInfoData} />
+        )}
+        {!printVisibility && (
+          <UrInfoForm urInfoHandlerCallback={handleSetInfoData} />
+        )}
+        {!printVisibility && <hr />}
+        <div className='qsl-card-and-address'>
           <QslCard>
             <TextFieldPart cardKey='My Name' cardValue={myName} />
             <CallsignPart
@@ -210,94 +219,39 @@ function App() {
             <TextFieldPart cardKey='Signal' cardValue={qsoSignal.toString()} />
             <PseTnxPart cardKey='PSE TNX' cardValue={pseTnx} />
           </QslCard>
-          <button className='print-button' onClick={handlePrintChange}>
-            Return To Form
-          </button>
+          <AddressCard>
+            <PostcardReturnAddressElement
+              cardKey='return person'
+              cardId='return person block'
+              cardClassName='return-person-block-class'
+              personName={myName}
+              personCallsign={myCallsign}
+              personAddress={myReturnAddress}
+              personCity={myCity}
+              personState={myState}
+              personZip={myReturnZip}
+              personCountry={myCountry}
+            />
+            <PostcardAddresseeElement
+              cardKey='addressee'
+              cardId='addressee block'
+              cardClassName='addressee-block-class'
+              personName={urname}
+              personCallsign={urCallsign}
+              personAddress={urAddress}
+              personCity={urCity}
+              personState={urState}
+              personZip={urZip}
+              personCountry={urCountry}
+            />
+            <StampElement />
+          </AddressCard>
         </div>
-      ) : (
-        <div className='print-hidden'>
-          <header>
-            <HeaderComponent />
-          </header>
-          <main>
-            <div>
-              <MyInfoForm myInfoHandlerCallback={handleSetInfoData} />
-            </div>
-            <div>
-              <UrInfoForm urInfoHandlerCallback={handleSetInfoData} />
-            </div>
-            <hr />
-            <AddressCard>
-              <PostcardReturnAddressElement
-                cardKey='return person'
-                cardId='return person block'
-                cardClassName='return-person-block-class'
-                personName={myName}
-                personCallsign={myCallsign}
-                personAddress={myReturnAddress}
-                personCity={myCity}
-                personState={myState}
-                personZip={myReturnZip}
-                personCountry={myCountry}
-              />
-              <PostcardAddresseeElement
-                cardKey='addressee'
-                cardId='addressee block'
-                cardClassName='addressee-block-class'
-                personName={urname}
-                personCallsign={urCallsign}
-                personAddress={urAddress}
-                personCity={urCity}
-                personState={urState}
-                personZip={urZip}
-                personCountry={urCountry}
-              />
-              <StampElement />
-            </AddressCard>
-            <hr />
-            <QslCard>
-              <TextFieldPart cardKey='My Name' cardValue={myName} />
-              <CallsignPart
-                callsignKey='My Callsign'
-                callsignValue={myCallsign}
-              />
-              <TextFieldPart cardKey='Return City' cardValue={myCity} />
-              <TextFieldPart cardKey='Return County' cardValue={myCounty} />
-              <TextFieldPart cardKey='Return Country' cardValue={myCountry} />
-              <TextFieldPart
-                cardKey='My CQ Zone'
-                cardValue={myCqZone.toString()}
-              />
-              <TextFieldPart
-                cardKey='My ARRL Section'
-                cardValue={myArrlSection}
-              />
-              <TextFieldPart cardKey='My Grid' cardValue={myGrid} />
-              <TextFieldPart cardKey='UR Name' cardValue={urname} />
-              <CallsignPart
-                callsignKey='UR Callsign'
-                callsignValue={urCallsign}
-              />
-              <TextFieldPart cardKey='Date' cardValue={qsoDate} />
-              <TextFieldPart cardKey='Time' cardValue={qsoTime} />
-              <TextFieldPart cardKey='Band MHz' cardValue={qsoBandMhz} />
-              <TextFieldPart cardKey='Mode' cardValue={qsoMode} />
-              <TextFieldPart cardKey='Exchange' cardValue={qsoExchange} />
-              <TextFieldPart
-                cardKey='Signal'
-                cardValue={qsoSignal.toString()}
-              />
-              <PseTnxPart cardKey='PSE TNX' cardValue={pseTnx} />
-            </QslCard>
-            <button className='print-button' onClick={handlePrintChange}>
-              Print Card
-            </button>
-          </main>
-          <footer>
-            <FooterComponent />
-          </footer>
-        </div>
-      )}
+        <button className='print-button' onClick={handlePrintChange}>
+          {buttonText}
+        </button>
+      </main>
+      {!printVisibility && <FooterComponent />}
     </div>
   );
 }
