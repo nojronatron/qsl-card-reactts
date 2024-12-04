@@ -232,10 +232,9 @@
     max-width: 654px;
     min-height: 436px;
     max-height: 436px;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     position: relative;
-    left: 25%;
     background-image: url('/background676x380.png');
     background-size: cover;
   }
@@ -264,13 +263,12 @@
   /* css for address side of postcard */
   .address-card-container {
     position: relative;
-    left: 25%;
     min-width: 654px;
     max-width: 654px;
     min-height: 436px;
     max-height: 436px;
-    margin: 0.6rem 0 0 0;
-    padding: 0;
+    margin: 0.6rem 0px 0px 0px;
+    padding: 0px;
     border: black solid 1px;
     background-color: rgba(250, 240, 240, 0.8);
   }
@@ -308,6 +306,7 @@
   .qsl-card-and-address {
     display: block;
     position: relative;
+    justify-items: center;
   }
 
   .header-logo {
