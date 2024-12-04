@@ -7,7 +7,7 @@ function HeaderComponent() {
         rel='noreferrer noopener'
       >
         <img
-          src='src/assets/jrsoftware-logo-128x128.png'
+          src='/jrsoftware-logo-128x128.png'
           alt='JR Software Logo links to GitHub'
           className='header-logo'
         />
