@@ -246,9 +246,22 @@ function App() {
             <StampElement />
           </AddressCard>
         </div>
-        <button className='print-button' onClick={handlePrintChange}>
+        <button
+          id='print-preview-toggle-button'
+          className='print-button'
+          onClick={handlePrintChange}
+        >
           {buttonText}
         </button>
+        {viewPrintPreview && (
+          <button
+            id='launch-print-dialog-button'
+            className='print-button'
+            onClick={() => window.print()}
+          >
+            Print
+          </button>
+        )}
       </main>
       {!viewPrintPreview && <FooterComponent />}
     </div>
