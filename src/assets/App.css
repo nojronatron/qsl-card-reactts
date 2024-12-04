@@ -1,4 +1,21 @@
 @media screen and (max-width: 599px) {
+  body {
+    background: url('/phone-bkgnd-430x928.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(250, 250, 250, 0.7);
+    z-index: -1;
+  }
+
   .input-form-container {
     grid-template-columns: 1fr 1fr;
   }
@@ -65,9 +82,34 @@
     border-radius: 50%;
     margin: 2px 0px;
   }
+
+  .address-card-container {
+    background-color: rgba(250, 240, 240, 0.6);
+  }
+
+  .qsl-card-container {
+    background-color: rgba(250, 240, 240, 0.6);
+  }
 }
 
 @media screen and (min-width: 600px) {
+  body {
+    background: url('/desktop-bkgnd-523x1000.png') no-repeat top center;
+    background-size: cover;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(250, 250, 250, 0.7);
+    z-index: -1;
+  }
+
   .input-form-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
@@ -194,7 +236,7 @@
     padding: 0;
     position: relative;
     left: 25%;
-    background-image: url('src/assets/background676x380.png');
+    background-image: url('/background676x380.png');
     background-size: cover;
   }
 
@@ -230,6 +272,7 @@
     margin: 0.6rem 0 0 0;
     padding: 0;
     border: black solid 1px;
+    background-color: rgba(250, 240, 240, 0.8);
   }
 
   .addressee-block-class {
